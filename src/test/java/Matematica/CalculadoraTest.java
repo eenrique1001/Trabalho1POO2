@@ -18,17 +18,17 @@ import static org.junit.jupiter.api.Assertions.*;
 public class CalculadoraTest {
     
     private Calculadora n;
-    private static float a;
-    private static float b;
-    private static float c;
+    private static int a;
+    private static int b;
+    private static int c;
     
     public CalculadoraTest() {
     }
     
     @BeforeAll
     public static void setUpClass() {
-        CalculadoraTest.a = (float) 3.333;
-        CalculadoraTest.b = (float) 6.666;
+        CalculadoraTest.a = 3;
+        CalculadoraTest.b = 2;
         CalculadoraTest.c = 0;
     }
     
@@ -54,12 +54,11 @@ public class CalculadoraTest {
     @Test
     public void testSoma() {
         System.out.println("soma");
-        float a = CalculadoraTest.a;
-        float b = CalculadoraTest.b;
-        float expResult = a + b;
-        float result = n.soma(a, b);
+        int a = CalculadoraTest.a;
+        int b = CalculadoraTest.b;
+        int expResult = a+b;
+        int result = n.soma(a, b);
         assertEquals(expResult, result, 0);
-        fail("Soma inválida! O valor esperado era" + expResult);
     }
 
     /**
@@ -68,12 +67,12 @@ public class CalculadoraTest {
     @Test
     public void testSubtrai() {
         System.out.println("subtrai");
-        float a = CalculadoraTest.a;
-        float b = CalculadoraTest.b;
-        float expResult = a - b;
-        float result = n.subtrai(a, b);
+        int a = CalculadoraTest.a;
+        int b = CalculadoraTest.b;
+        int expResult = a - b;
+        int result = n.subtrai(a, b);
         assertEquals(expResult, result, 0);
-        fail("Subtração inválida! O valor esperado era" + expResult);
+        
     }
 
     /**
@@ -81,7 +80,13 @@ public class CalculadoraTest {
      */
     @Test
     public void testMultiplica() {
-        
+        System.out.println("multiplica");
+        int a = CalculadoraTest.a;
+        int b = CalculadoraTest.b;
+        int notExpResult = CalculadoraTest.c;
+        int result = n.multiplica(a, b);
+        assertNotEquals(notExpResult, result, 0);
+
     }
 
     /**
@@ -105,6 +110,12 @@ public class CalculadoraTest {
     public void testNaoEPrimo (){
         System.out.println("NaoEPrimo");
         assertTrue(n.ePrimo(100000));
+    }
+    
+    @Test
+    public void naoEAMesmaCalculadora(){
+        Calculadora g = new Calculadora();
+        assertNotSame(g, n);
     }
     
 }

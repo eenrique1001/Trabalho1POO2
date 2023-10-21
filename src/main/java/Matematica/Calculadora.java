@@ -17,18 +17,18 @@ public class Calculadora {
 //    }
     
     
-    public float soma(float a, float b){
+    public int soma(int a, int b){
         return a+b;
     }
     
-    public float subtrai(float a, float b){
+    public int subtrai(int a, int b){
         return a-b;
     } 
     
-    public float multiplica(float a, float b){
+    public int multiplica(int a, int b){
         return a*b;
     }
-    public float divide(float a, float b){
+    public int divide(int a, int b){
         return a/b;
     }
     public boolean ePrimo(int numero){
