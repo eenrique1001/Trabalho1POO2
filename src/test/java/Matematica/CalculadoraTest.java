@@ -11,6 +11,7 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.condition.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
@@ -53,7 +54,9 @@ public class CalculadoraTest {
     /**
      * Test of soma method, of class Calculadora.
      */
+    
     @Test
+    //@EnabledIf("'BR' == systemProperty.get('user.country')")
     public void testSoma() {
         System.out.println("soma");
         int a = CalculadoraTest.a;
@@ -154,7 +157,17 @@ public class CalculadoraTest {
         int qntd = 5;
         int[] expResult = {0, 3, 6, 9, 12};
         int[] result = n.multiplos(num, qntd);
+        assertNotNull(result);
         assertArrayEquals(expResult, result);
+    }
+    
+    @Test
+    public void testMultiplos2() {
+        System.out.println("multiplos 2");
+        int num = 3;
+        int qntd = -1;
+        int[] result = n.multiplos(num, qntd);
+        assertNull(result);
     }
     
     
