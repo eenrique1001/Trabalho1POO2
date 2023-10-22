@@ -29,6 +29,8 @@ public class Calculadora {
         return a*b;
     }
     public int divide(int a, int b){
+        if(b == 0)
+            throw new ArithmeticException("Divisão por zero!");
         return a/b;
     }
     public boolean ePrimo(int numero){

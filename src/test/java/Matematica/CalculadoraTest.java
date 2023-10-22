@@ -96,7 +96,18 @@ public class CalculadoraTest {
      */
     @Test
     public void testDivide() {
-        
+        System.out.println("divide por zero");
+        int a = CalculadoraTest.a;
+        int b = CalculadoraTest.b;
+        assertTimeout(java.time.Duration.ofMillis(500), () -> n.divide(a, b));
+    }
+    
+    @Test
+    public void testDividePorZero() {
+        System.out.println("divide por zero");
+        int a = CalculadoraTest.a;
+        int b = CalculadoraTest.b;
+        assertThrows(ArithmeticException.class, ()->n.divide(a, b));
     }
 
     /**
