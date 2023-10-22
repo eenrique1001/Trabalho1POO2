@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Matematica;
-
+import java.util.ArrayList;
 /**
  *
  * @author Ézio
@@ -37,8 +37,38 @@ public class Calculadora {
         for(int i=5; i * i <= numero; i++)
            if(numero % i == 0)
                return false;
-        return true;
-        
+        return true;    
     }
+    
+    public ArrayList<Integer> fibonacci(int n){
+        int a = 0, b = 1, c, i;
+        ArrayList<Integer> array = new ArrayList<>();
+        array.add(a);
+        if (n == 0)
+            return array;
+        array.add(b);
+        if (n == 1)
+            return array;
+        for (i = 1; i < n-1; i++) {
+            c = a + b;
+            a = b;
+            b = c;
+            array.add(b);
+        }
+        return array;
+    }
+    
+    public int[] multiplos (int num, int qntd){
+        if (qntd < 0)
+            return null;
+        int[] array = new int[qntd];
+        array[0] = 0;
+        if (qntd == 0)
+            return array;
+        for (int i = 1; i < qntd; i++)
+            array[i] = array[i-1] + num;
+        return array;
+    }
+    
    
 }

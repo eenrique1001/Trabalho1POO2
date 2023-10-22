@@ -4,6 +4,8 @@
  */
 package Matematica;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -117,5 +119,35 @@ public class CalculadoraTest {
         Calculadora g = new Calculadora();
         assertNotSame(g, n);
     }
+
+    /**
+     * Test of fibonacci method, of class Calculadora.
+     */
+    @Test
+    public void testFibonacci() {
+        System.out.println("fibonacci");
+        int m = 6;
+        Iterable<Integer> expResult = new ArrayList<>(Arrays.asList(0,1, 1, 2, 3, 5));
+        ArrayList<Integer> result = n.fibonacci(m);
+        assertIterableEquals(expResult, result);
+        
+    }
+
+    /**
+     * Test of multiplos method, of class Calculadora.
+     */
+    @Test
+    public void testMultiplos() {
+        System.out.println("multiplos");
+        int num = 3;
+        int qntd = 5;
+        int[] expResult = {0, 3, 6, 9, 12};
+        int[] result = n.multiplos(num, qntd);
+        assertArrayEquals(expResult, result);
+    }
+    
+    
+    
+    
     
 }
